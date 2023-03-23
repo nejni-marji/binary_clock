@@ -102,7 +102,7 @@ def draw_once(table, on, off, grid):
 	# end colors
 	render += ANSI_END
 
-	print(render, end='')
+	return render
 
 
 
@@ -112,7 +112,8 @@ def main():
 		pprint(table)
 
 	# draw_once(table, '#FF8CDA', '#D7E7ED', '#EFB1E2')
-	draw_once(table, '#FF8CDA', '#FFFFFF', '#EFB1E2')
+	render = draw_once(table, '#FF8CDA', '#FFFFFF', '#EFB1E2')
+	print(render, end='')
 
 
 if __name__ == '__main__':
