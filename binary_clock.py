@@ -26,10 +26,6 @@ def get_table():
 	hms = [curr.hour, curr.minute, curr.second]
 	hms_bin = [bin(i)[2:].zfill(8) for i in hms]
 
-	if DEBUG:
-		# demo hmsb
-		# hms_bin = ['h1234567', 'mABCDEFG', 'sabcdefg']
-
 	hms_str = ''.join(hms_bin)
 
 	table = []
