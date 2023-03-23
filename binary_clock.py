@@ -70,27 +70,24 @@ def draw_once(table, on, off, grid):
 	height = len(table)
 	width = len(table[0])
 
-	def row_sep():
-		col = ansi[2]
-		w = (width*(COL_SEP_MOD+WIDTH_MOD)+COL_SEP_MOD)
-		return col + ' ' * w + '\n'
 
-	def col_sep():
-		col = ansi[2]
-		w = COL_SEP_MOD
-		return col + ' ' * w
+	grid_col = ansi[2]
+	row_w = (width*(COL_SEP_MOD+WIDTH_MOD)+COL_SEP_MOD)
+	row_sep = grid_col + ' ' * row_w + '\n'
+	col_w = COL_SEP_MOD
+	col_sep = grid_col + ' ' * col_w
 
 
 	render = ''
 
 	for row in table:
 		# print separator above row
-		render += row_sep()
+		render += row_sep
 		# bonus rows account for HEIGHT_MOD
 		for bonus_row in range(HEIGHT_MOD):
 			for item in row:
 				# print separator before item
-				render += col_sep()
+				render += col_sep
 				# clever trick to reference index
 				render += ansi[not item]
 				# debug setting
@@ -99,11 +96,11 @@ def draw_once(table, on, off, grid):
 				else:
 					# account for WIDTH_MOD
 					render += ' ' * WIDTH_MOD
-			render += col_sep()
+			render += col_sep
 			# go to next row
 			render += '\n'
 	# print final separator at end of table
-	render += row_sep()
+	render += row_sep
 	# end colors
 	render += ANSI_END
 
