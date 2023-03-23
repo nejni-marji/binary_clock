@@ -18,15 +18,17 @@ DEBUG = False
 
 def get_table():
 	curr = datetime.datetime.now()
-	# demo time
-	# curr = datetime.datetime.strptime('2023-03-22 13:48:34', '%Y-%m-%d %H:%M:%S')
-	curr = datetime.datetime.strptime('2023-03-22 23:59:59', '%Y-%m-%d %H:%M:%S')
+	if DEBUG:
+		# demo time
+		# curr = datetime.datetime.strptime('2023-03-22 13:48:34', '%Y-%m-%d %H:%M:%S')
+		curr = datetime.datetime.strptime('2023-03-22 23:59:59', '%Y-%m-%d %H:%M:%S')
 
 	hms = [curr.hour, curr.minute, curr.second]
 	hms_bin = [bin(i)[2:].zfill(8) for i in hms]
 
-	# demo hmsb
-	# hms_bin = ['h1234567', 'mABCDEFG', 'sabcdefg']
+	if DEBUG:
+		# demo hmsb
+		# hms_bin = ['h1234567', 'mABCDEFG', 'sabcdefg']
 
 	hms_str = ''.join(hms_bin)
 
